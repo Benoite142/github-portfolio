@@ -311,3 +311,129 @@ footer p {
     color: #6e7681;
     margin: 0;
 }
+
+/* Animated Skills Cards */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 10px rgba(80, 0, 202, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(80, 0, 202, 0.6);
+    }
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    animation: slideInUp 0.6s ease-out;
+}
+
+.skills-category {
+    animation: slideInUp 0.8s ease-out;
+}
+
+.skills-category h3 {
+    font-size: 1.3em;
+    color: #58a6ff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 15px;
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.05) 0%, rgba(80, 0, 202, 0.05) 100%);
+    border: 2px solid rgba(88, 166, 255, 0.2);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.skill-card:hover::before {
+    left: 100%;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    border-color: #58a6ff;
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.15) 0%, rgba(80, 0, 202, 0.15) 100%);
+    box-shadow: 0 12px 24px rgba(88, 166, 255, 0.25), 0 0 20px rgba(80, 0, 202, 0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+.skill-icon {
+    font-size: 2.5em;
+    color: #58a6ff;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
+    color: #79c0ff;
+    font-size: 3em;
+    animation: glow 2s ease-in-out infinite;
+}
+
+.skill-name {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #e0e0e0;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.skill-card:hover .skill-name {
+    color: #79c0ff;
+}

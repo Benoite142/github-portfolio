@@ -2,7 +2,7 @@ import React from 'react'
 
 function Projects() {
     const projects = [
-        { name: 'Piano Knight', link: '#' },
+        { name: 'Piano Knight', link: 'https://ben0ite.itch.io/piano-knight' },
         { name: 'Synthesizer Application', link: 'https://github.com/Benoite142/Rusty-Synth' },
         { name: 'Hockey Stats', link: 'https://github.com/Benoite142/hockeyStats' }
     ]
